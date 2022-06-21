@@ -1,1 +1,12 @@
-<h1>hello</h1>
+<form action="/users" method="post" accept-charset="UTF-8">  
+  <label for="email">Email</label>
+  <input type="email" id="email" name="user[email]">
+
+  <label for="username">Username</label>
+  <input id="username" name="user[username]">
+
+  <label for="password">Password</label>
+  <input type="password" id="password" name="user[password]">
+
+  <button type="submit">Create User</button>
+</form>
