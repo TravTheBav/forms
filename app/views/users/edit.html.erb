@@ -1,0 +1,46 @@
+<!--
+A basic html form
+
+<form action="/users" method="post" accept-charset="UTF-8">  
+  <label for="email">Email</label>
+  <input type="email" id="email" name="user[email]">
+
+  <label for="username">Username</label>
+  <input id="username" name="user[username]">
+
+  <label for="password">Password</label>
+  <input type="password" id="password" name="user[password]">
+
+  <button type="submit">Create User</button>
+</form>
+-->
+
+<!--
+A form using Rails form tags
+
+<%= form_tag('/users') do |form| %>
+  <%= label_tag 'email' %>
+  <%= email_field_tag 'email' %>
+  
+  <%= label_tag 'username' %>
+  <%= text_field_tag 'username' %>
+
+  <%= label_tag 'password' %>
+  <%= password_field_tag 'password' %>
+
+  <%= button_tag 'create user' %>
+<% end %>
+-->
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :email, "Your email" %>
+  <%= form.email_field :email, value: @user["email"] %>
+
+  <%= form.label :username %>
+  <%= form.text_field :username, value: @user["username"] %>
+
+  <%= form.label :password %>
+  <%= form.password_field :password, value: @user["password"] %>
+
+  <%= form.submit "edit user" %>
+<% end %>
