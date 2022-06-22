@@ -1,4 +1,6 @@
 <!--
+A basic html form
+
 <form action="/users" method="post" accept-charset="UTF-8">  
   <label for="email">Email</label>
   <input type="email" id="email" name="user[email]">
@@ -13,6 +15,9 @@
 </form>
 -->
 
+<!--
+A form using Rails form tags
+
 <%= form_tag('/users') do |form| %>
   <%= label_tag 'email' %>
   <%= email_field_tag 'email' %>
@@ -24,4 +29,18 @@
   <%= password_field_tag 'password' %>
 
   <%= button_tag 'create user' %>
+<% end %>
+-->
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :email, "Your email" %>
+  <%= form.email_field :email, value: "example@gmail.com"%>
+
+  <%= form.label :username %>
+  <%= form.text_field :username, value: "CoolUserName123" %>
+
+  <%= form.label :password %>
+  <%= form.password_field :password, value: "" %>
+
+  <%= form.submit "create user" %>
 <% end %>
