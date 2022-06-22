@@ -32,15 +32,6 @@ A form using Rails form tags
 <% end %>
 -->
 
-<%= form_with model: @user do |form| %>
-  <%= form.label :email, "Your email" %>
-  <%= form.email_field :email, value: "example@gmail.com"%>
+<h1>New User</h1>
 
-  <%= form.label :username %>
-  <%= form.text_field :username, value: "CoolUserName123" %>
-
-  <%= form.label :password %>
-  <%= form.password_field :password, value: "" %>
-
-  <%= form.submit "create user" %>
-<% end %>
+<%= render "form", user: @user %>
